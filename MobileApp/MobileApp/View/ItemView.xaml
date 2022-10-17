@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:MobileApp" xmlns:local1="clr-namespace:MobileApp.ViewModel"
+             x:Class="MobileApp.View.ItemView">
+    <ContentPage.BindingContext>
+        <local1:itemVM></local1:itemVM>
+    </ContentPage.BindingContext>
+    <ContentPage.Content>
+        <StackLayout>
+            <Label Text="MVVM" FontSize="Header" TextColor="Blue"></Label>
+            <Label Text="Item Name" FontSize="Large"></Label>
+            <Entry x:Name="txtitemname" Text="{Binding ItemName}" FontSize="Large"></Entry>
+            <Label Text="Item Value" FontSize="Large"></Label>
+            <Entry x:Name="txtitemvalue" Text="{Binding ItemValue}" FontSize="Large"></Entry>
+            <Button Text="Save" Command="{Binding submitCommand}" BackgroundColor="SkyBlue" x:Name="btnsubmit"></Button>
+            <Label Text="{Binding Message}" FontSize="Large"></Label>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

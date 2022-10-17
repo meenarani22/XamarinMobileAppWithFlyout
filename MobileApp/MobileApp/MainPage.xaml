@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:local="clr-namespace:MobileApp.ViewModel"
+             mc:Ignorable="d"  x:Class="MobileApp.MainPage">
+    <ContentPage.BindingContext>
+        <local:MainPageVM></local:MainPageVM>
+    </ContentPage.BindingContext>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Image Source="xamagon" BackgroundColor="PowderBlue" Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2">            
+        </Image>
+        <Editor Text="{Binding TheNote}" Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2" Placeholder="Enter Note Here."></Editor>
+        <Button Command="{Binding SaveCommand}" Grid.Row="2" Grid.Column="0" Text="Save"></Button>
+        <Button Command="{Binding EraseCommand}" Grid.Row="2" Grid.Column="1" Text="Erase"></Button>
+        <CollectionView ItemsSource="{Binding AllNotes}" Grid.Row="3" Grid.ColumnSpan="2">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <StackLayout>
+                        <Frame>
+                            <Label Text="{Binding .}" FontSize="Title"></Label>
+                        </Frame>
+                    </StackLayout>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+    </Grid>
+
+</ContentPage>
